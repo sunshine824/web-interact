@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开始抽奖</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <style>
+        .bg {
+            background: url("../../images/wood.jpg") no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            min-height: calc(100vh);
+            position: relative;
+        }
+
+        .header {
+            overflow: auto;
+        }
+
+        .comp_logo {
+            padding: 50px 50px 30px 50px;
+            width: 300px;
+            float: left;
+        }
+
+        .comp_logo img {
+            width: 100%;
+        }
+
+        .award-intr {
+            font-size: 60px;
+            padding: 55px 50px 30px;
+            color: #fff;
+            float: right;
+        }
+
+        .main {
+            width: 78%;
+            position: absolute;
+            left: 50%;
+            margin-left: -39%;
+            color: #fff;
+            text-align: center;
+        }
+
+        .main .lucky-list {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+        }
+
+        .main .lucky-list li {
+            text-align: center;
+            /*width: 16.6666%;*/
+            width: 25%;
+            /*width: 12.5%;*/
+            color: #fff;
+            float: left;
+            margin-bottom: 40px;
+        }
+        .lucky-list li .border-box{
+            width: 50%;
+            display: inline-block;
+            border:16px solid transparent;
+            border-image-source: url("../../images/shell.png");
+            border-image-slice: 35 40 35 27;
+            border-image-width: 30 30;
+            border-image-repeat: stretch;
+        }
+
+        .lucky-list li .border{
+            width: 100%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .lucky-list li .border img {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lucky-list li .user-name {
+            font-size: 36px;
+            margin-top: 20px;
+            color: #f6a420;
+            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 247, 175, 1)), to(rgba(246, 164, 32, 1)));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .main .btn-start {
+            font-size: 26px;
+            margin-top: 14px;
+        }
+
+        .btn-op{
+            background: url("../../images/veneer.png") center center;
+            width: 300px;
+            height: 140px;
+            background-size: 300px 140px;
+            display: inline-block;
+            margin-top: 80px;
+        }
+        .btn-op .btn-start{
+            font-size: 45px;
+            color: #441c0a;
+            margin-top: 35px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .btn-op .btn-space{
+            font-size: 18px;
+            color: #65422b;
+        }
+        .text-gradient {
+            color: #f6a420;
+            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 247, 175, 1)), to(rgba(246, 164, 32, 1)));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <header class="header">
+        <!--公司logo-->
+        <div class="comp_logo">
+            <img src="../../images/science_logo.png"/>
+        </div>
+        <p class="award-intr text-gradient">三等奖（iPhone X，共4位）</p>
+    </header>
+
+    <div class="main">
+        <ul class="lucky-list">
+            <li>
+                <div class="border-box">
+                    <div class="border">
+                        <img src="../../images/user-header.png"/>
+                    </div>
+                </div>
+                <p class="user-name">幸运星</p>
+            </li>
+        </ul>
+
+        <div class="btn-op">
+            <p class="btn-start start">开始抽奖</p>
+            <p class="btn-space">可按「 空格 」键开始</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../js/jquery.lucky.js"></script>
+<script>
+    autoTop()
+
+    var imgs = []
+
+    for (var i = 0; i < 16; i++) {
+        imgs.push('../../images/test/timg' + i + '.jpg')
+    }
+
+    //抽奖
+    $('.lucky-list li').lucky({
+        time: 60,
+        imgs: imgs,
+        count: 24,
+        clickDom:$('.start'),
+        start:function (index,$this) {
+            $this.find('img').attr('src', imgs[index])
+        },
+        stop:function () {
+            console.log('停止了')
+        }
+    })
+</script>
