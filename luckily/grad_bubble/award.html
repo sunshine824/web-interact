@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <style>
+        canvas {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #c1 {
+            opacity: 0;
+        }
+
+        #c2 {
+            background: #000;
+        }
+        .bg{
+            width: 100%;
+            height: calc(100vh);
+            text-align: center;
+            position: relative;
+        }
+        .header{
+            overflow: auto;
+            display: inline-block;
+            padding: 50px 60px;
+        }
+        .header img{
+            width: 300px;
+        }
+        .main{
+            position: absolute;
+            color: #fff;
+            width: 78%;
+            text-align: center;
+            left: 50%;
+            margin-left: -39%;
+        }
+        .main h2{
+            font-weight: 600;
+            font-size: 60px;
+            text-shadow: 2px 3px rgba(4, 0, 0, .32);
+        }
+        .main .mask{
+            width: 100%;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            margin-top: 100px;
+            padding: 30px 0 30px 0;
+        }
+        .mask .mask-box{
+            display: inline-block;
+            overflow: auto;
+            text-align: left;
+        }
+        .mask-box img{
+            width: 180px;
+            float: left;
+        }
+        .mask-box .award-info{
+            float: left;
+            margin-left: 30px;
+        }
+        .mask-box .award-info .award-name{
+            font-size: 77px;
+            color: #fff;
+        }
+        .mask-box .award-info .award-title,.mask-box .award-info .award-rate{
+            font-size: 28px;
+            margin-top: 10px;
+            color: #fff;
+        }
+        .main .bottom{
+            margin-top: 100px;
+        }
+        .main .bottom .btn-grad{
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 38px;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        .main .bottom .btn-start{
+            font-size: 26px;
+            margin-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+
+<div class="bg">
+    <header class="header">
+        <img src="../../images/science_logo.png" class="logo"/>
+    </header>
+    <div class="main">
+        <h2>三等奖</h2>
+        <div class="mask">
+            <div class="mask-box">
+                <img src="../../images/award_01.png" class="ewm"/>
+                <div class="award-info">
+                    <p class="award-name">iPhone X</p>
+                    <p class="award-title">奖品数量：7</p>
+                    <p class="award-rate">中奖概率：8%</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <p class="btn-grad">开始抽奖</p>
+            <p class="btn-start">或按「 空格 」键开始抽奖</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../js/grad_bubble.js"></script>
+<script src="../../config/config.js"></script>
+<script>
+    autoTop()
+</script>

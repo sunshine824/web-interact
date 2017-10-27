@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <style>
+        .bg{
+            background: url("../../images/science_bg.jpg") no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            min-height: calc(100vh);
+            position: relative;
+        }
+        .header{
+            overflow: auto;
+        }
+        .comp_logo{
+            padding: 50px 50px 30px 50px;
+            width: 300px;
+        }
+        .comp_logo img{
+            width:100%;
+        }
+        .main{
+            width: 78%;
+            position: absolute;
+            left: 50%;
+            margin-left: -39%;
+            color: #fff;
+            text-align: center;
+        }
+        .main h2{
+            font-weight: normal;
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        .main .sign-count{
+            position: relative;
+            display: inline-block;
+            margin-top: 28px;
+        }
+        .main .sign-count img.ewm{
+            float: left;
+            width: 200px;
+        }
+        .main .sign-count .count-info{
+            float: left;
+            margin-left: 30px;
+        }
+        .main .sign-count .count-info .count{
+            font-size: 136px;
+            color: #fff;
+        }
+        .main .sign-count .count-info .count-title{
+            font-size: 30px;
+        }
+        .main .sign-count:before{
+            position: absolute;
+            content: "";
+            background: url("../../images/grad_line.png") no-repeat;
+            width: 550px;
+            height: 5px;
+            left: 50%;
+            margin-left: -275px;
+            background-size: 550px;
+            top:-30px;
+        }
+        .main .sign-count:after{
+            position: absolute;
+            content: "";
+            background: url("../../images/grad_line.png") no-repeat;
+            width: 550px;
+            height: 5px;
+            left: 50%;
+            margin-left: -275px;
+            background-size: 550px;
+            bottom:-30px;
+        }
+        .main .award-rate{
+            font-size: 28px;
+            margin-top: 50px;
+        }
+        .main .btn-default{
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 38px;
+            text-align: center;
+            -webkit-border-radius: 35px;
+            -moz-border-radius: 35px;
+            border-radius: 35px;
+            border:1px solid #fff;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .main .btn-start{
+            font-size: 26px;
+            margin-top: 14px;
+        }
+        .maT-100{
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <!--公司logo-->
+        <header class="header">
+            <div class="comp_logo">
+                <img src="../../images/science_logo.png"/>
+            </div>
+        </header>
+        <!--main-->
+        <div class="main">
+            <h2>2017新品发布会抽奖环节</h2>
+            <div class="sign-count">
+                <img src="../../images/science_ewm.png" class="ewm"/>
+                <div class="count-info">
+                    <p class="count">128</p>
+                    <p class="count-title">当前已签到人数</p>
+                </div>
+            </div>
+            <p class="award-rate">
+                共有4项（30个奖品）中奖概率：74.3%
+            </p>
+
+            <p class="btn-default maT-100">开始抽奖</p>
+            <p class="btn-start">可按「 空格 」键开始</p>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../config/config.js"></script>
+<script>
+    autoTop()
+</script>

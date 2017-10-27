@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <style>
+        canvas {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #c1 {
+            opacity: 0;
+        }
+
+        #c2 {
+            background: #000;
+        }
+        .bg{
+            width: 100%;
+            height: calc(100vh);
+            text-align: center;
+            position: relative;
+        }
+        .header{
+            overflow: auto;
+            display: inline-block;
+            padding: 50px 60px;
+        }
+        .header img{
+            width: 300px;
+        }
+        .main{
+            position: absolute;
+            color: #fff;
+            width: 90%;
+            text-align: center;
+            left: 50%;
+            margin-left: -45%;
+        }
+        .main h2{
+            font-weight: 600;
+            font-size: 60px;
+            text-shadow: 2px 3px rgba(4, 0, 0, .32);
+        }
+        .main .mask{
+            width: 100%;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            margin-top: 100px;
+            padding: 30px 0 30px 0;
+        }
+        .mask .mask-box{
+            width: 80%;
+            margin: auto;
+        }
+        .mask-box ul{
+            overflow: auto;
+        }
+        .mask-box ul li{
+            float: left;
+            text-align: left;
+        }
+        .mask-box ul li{
+            width: 25%;
+        }
+        /*.mask-box ul li.sign-count{
+            width: 22.66%;
+        }*/
+        .mask-box ul li.sign-count .title{
+            font-size: 32px;
+            text-align: left;
+        }
+        .mask-box ul li.sign-count .count{
+            font-size: 130px;
+            text-align: left;
+        }
+        .mask-box ul li.ewm img{
+            width: 180px;
+        }
+        .mask-box ul li:last-child{
+            margin-right: 0;
+        }
+        .main .bottom{
+            margin-top: 100px;
+        }
+        .main .bottom .btn-grad{
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 38px;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        .main .bottom .btn-start{
+            font-size: 26px;
+            margin-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+
+<div class="bg">
+    <header class="header">
+        <img src="../../images/science_logo.png" class="logo"/>
+    </header>
+    <div class="main">
+        <h2>2017新品发布会抽奖环节</h2>
+        <div class="mask">
+            <div class="mask-box">
+                <ul>
+                    <li class="ewm">
+                        <img src="../../images/science_ewm.png"/>
+                    </li>
+                    <li class="sign-count">
+                        <p class="title">已签到人数</p>
+                        <p class="count">98</p>
+                    </li>
+                    <li class="sign-count">
+                        <p class="title">奖品数量</p>
+                        <p class="count">24</p>
+                    </li>
+                    <li class="sign-count">
+                        <p class="title">中奖概率</p>
+                        <p class="count">24%</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom">
+            <p class="btn-grad">开始抽奖</p>
+            <p class="btn-start">或按「 空格 」键开始抽奖</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../js/grad_bubble.js"></script>
+<script src="../../config/config.js"></script>
+<script>
+    autoTop()
+</script>

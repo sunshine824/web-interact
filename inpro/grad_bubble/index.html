@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <link rel="stylesheet" href="../../css/red_pocket.css"/>
+    <link rel="stylesheet" href="../../css/barrager.css"/>
+    <style>
+        canvas {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #c1 {
+            opacity: 0;
+        }
+
+        #c2 {
+            background: #000;
+        }
+
+        .bg {
+            width: 100%;
+            height: calc(100vh);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header {
+            overflow: auto;
+        }
+
+        .comp_logo {
+            padding: 50px 50px 30px 50px;
+            width: 300px;
+            margin: 0 auto;
+        }
+
+        .comp_logo img {
+            width: 100%;
+        }
+
+        .main {
+            position: absolute;
+            width: 78%;
+            left: 50%;
+            margin-left: -39%;
+            color: #fff;
+            text-align: center;
+        }
+
+        .perform-info{
+            padding: 30px 0;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+        }
+
+        .main .perform-con {
+            font-size: 60px;
+            font-weight: 600;
+        }
+
+        .main .performer {
+            font-size: 28px;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+
+        .statistics {
+            width: 750px;
+            margin: 100px auto 0 auto;
+            list-style: none;
+            position: relative;
+            overflow: auto;
+            padding: 15px 0;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+        }
+
+        .statistics li {
+            width: 33.3333%;
+            float: left;
+        }
+
+        .statistics li img {
+            width: 60px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .statistics li .stat-info {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+
+<div class="bg">
+    <header class="header">
+        <div class="comp_logo">
+            <img src="../../images/science_logo.png"/>
+        </div>
+    </header>
+    <div class="main">
+        <div class="perform-info">
+            <h2 class="perform-con">《我为祖国献石油》合唱</h2>
+            <p class="performer">研发部门</p>
+        </div>
+        <ul class="statistics">
+            <li>
+                <img src="../../images/star02.png"/>
+                <div class="stat-info">
+                    <p class="stat-title">点赞</p>
+                    <p class="stat-count">1780</p>
+                </div>
+            </li>
+            <li>
+                <img src="../../images/barrage02.png"/>
+                <div class="stat-info">
+                    <p class="stat-title">弹幕</p>
+                    <p class="stat-count">520</p>
+                </div>
+            </li>
+            <li>
+                <img src="../../images/star02.png"/>
+                <div class="stat-info">
+                    <p class="stat-title">打赏</p>
+                    <p class="stat-count">￥250</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!--红包-->
+    <div class="red_pocket active">
+        <img src="../../images/sheen.png"/>
+        <div class="pocket-box">
+            <p class="pay">打赏</p>
+            <p class="pay-money">￥0.01</p>
+            <p class="pay-user">
+                <img src="../../images/user-header.png"/>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../js/grad_bubble.js"></script>
+<script src="../../js/jquery.barrager.js"></script>
+<script src="../../js/jquery.star.js"></script>
+<script src="../../config/config.js"></script>
+<script>
+    autoTop()
+
+    var loop_time = 2000
+
+    setInterval(function () {
+        var obj = {
+            img: '../../images/user-header.png',
+            info: '天涯何处无芳草',
+            close: random(2) === 1,
+            speed: 10,
+            top: random(parseInt($('.main').css('margin-top')) + parseInt($('.header').outerHeight(true))-60),
+            color: '#fff',
+            backgroundColor: 'rgba(0,0,0,.5)',
+            old_ie_color: '#000000'
+        }
+        $('.bg').barrager(obj);
+    }, loop_time)
+
+    $('.bg').star({
+        count:100,
+        initBottom:-60,
+        initLeft:600,
+        maxHeight:600,
+        maxWidth:600,
+        time:60
+    })
+
+    setTimeout(function () {
+        $('.red_pocket').removeClass('active')
+    },10000)
+</script>

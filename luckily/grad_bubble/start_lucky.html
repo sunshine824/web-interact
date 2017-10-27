@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <style>
+        canvas {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: -1;
+        }
+
+        #c1 {
+            opacity: 0;
+        }
+
+        #c2 {
+            background: #000;
+        }
+        .bg{
+            width: 100%;
+            height: calc(100vh);
+            text-align: center;
+            position: relative;
+        }
+        .header {
+            overflow: auto;
+        }
+
+        .comp_logo {
+            padding: 50px 50px 30px 50px;
+            width: 300px;
+            float: left;
+        }
+
+        .comp_logo img {
+            width: 100%;
+        }
+
+        .award-intr {
+            font-size: 40px;
+            padding: 55px 50px 30px;
+            color: #fff;
+            float: right;
+        }
+        .main{
+            position: absolute;
+            color: #fff;
+            width: 78%;
+            text-align: center;
+            left: 50%;
+            margin-left: -39%;
+        }
+        .main h2{
+            font-weight: 600;
+            font-size: 60px;
+            text-shadow: 2px 3px rgba(4, 0, 0, .32);
+        }
+
+        .main .lucky-list {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+        }
+
+        .main .lucky-list li {
+            text-align: center;
+            /*width: 16.6666%;*/
+            width: 25%;
+           /* width: 12.5%;*/
+            color: #fff;
+            float: left;
+            margin-bottom: 40px;
+        }
+
+        .lucky-list li img {
+            width: 50%;
+            border-radius: 50%;
+            position: relative;
+            -webkit-box-shadow: 0 0 9px 4px rgba(4,0,0,.52);
+            -moz-box-shadow: 0 0 9px 4px rgba(4,0,0,.52);
+            box-shadow: 0 0 9px 4px rgba(4,0,0,.52);
+        }
+
+        .lucky-list li .user-name {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+
+        .main .bottom{
+            margin-top: 100px;
+        }
+        .main .bottom .btn-grad{
+            width: 300px;
+            height: 70px;
+            line-height: 70px;
+            font-size: 38px;
+            background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-o-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:-moz-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            background:linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,.6),rgba(255,255,255,0));
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        .main .bottom .btn-start{
+            font-size: 26px;
+            margin-top: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+
+<div class="bg">
+    <header class="header">
+        <div class="comp_logo">
+            <img src="../../images/science_logo.png" class="logo"/>
+        </div>
+        <p class="award-intr">三等奖（iPhone X，共4位）</p>
+    </header>
+    <div class="main">
+        <ul class="lucky-list">
+            <li>
+                <img src="../../images/user-header.png"/>
+                <p class="user-name">幸运星</p>
+            </li>
+            <li>
+                <img src="../../images/user-header.png"/>
+                <p class="user-name">幸运星</p>
+            </li>
+            <li>
+                <img src="../../images/user-header.png"/>
+                <p class="user-name">幸运星</p>
+            </li>
+            <li>
+                <img src="../../images/user-header.png"/>
+                <p class="user-name">幸运星</p>
+            </li>
+        </ul>
+
+        <div class="bottom">
+            <p class="btn-grad start">开始抽奖</p>
+            <p class="btn-start">或按「 空格 」键开始抽奖</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../js/grad_bubble.js"></script>
+<script src="../../config/config.js"></script>
+<script src="../../js/jquery.lucky.js"></script>
+<script>
+    autoTop()
+
+    var imgs = []
+
+    for (var i = 0; i < 16; i++) {
+        imgs.push('../../images/test/timg' + i + '.jpg')
+    }
+
+    //抽奖
+    $('.lucky-list li').lucky({
+        time: 60,
+        imgs: imgs,
+        count: 3,
+        clickDom:$('.start'),
+        start:function (index,$this) {
+            console.log('开始')
+            $this.find('img').attr('src', imgs[index])
+        },
+        stop:function () {
+            console.log('停止了')
+        }
+    })
+</script>

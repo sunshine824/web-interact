@@ -1,0 +1,133 @@
+.red_pocket{
+    position: absolute;
+    bottom: 110px;
+    right:56px;
+    z-index: 10;
+    width: 550px;
+    height: 520px;
+    opacity:0;
+    transition: all 2s linear;
+    transform: translate(270px,316px) scale(0);
+}
+.red_pocket.active{
+    opacity: 1;
+    animation: red_pocket_show 2s linear;
+    transform: translate(0px,0px) scale(1);
+}
+.red_pocket>img{
+    width: 100%;
+    position: absolute;
+    animation: rotate 4s linear infinite;
+}
+.red_pocket .pocket-box{
+    background: url("../images/red_pocket.png") no-repeat;
+    width: 31%;
+    height: 42%;
+    position: absolute;
+    bottom: 154px;
+    right:190px;
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+}
+.red_pocket .pocket-box .pay{
+    margin-top: 30px;
+}
+.red_pocket .pocket-box .pay-user{
+    position: absolute;
+    left: 50%;
+    margin-left: -30.5px;
+    bottom: 34px;
+}
+.red_pocket .pocket-box .pay-user img{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+@-webkit-keyframes  rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-o-keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@-moz-keyframes  rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+@keyframes  rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes red_pocket_show {
+    0%{
+        opacity:0;
+        transform: translate(270px,316px) scale(0);
+    }
+    80%{
+        opacity:1;
+        transform: translate(0px,0px) scale(1.1);
+    }
+    100%{
+        transform: translate(0px,0px) scale(1);
+    }
+}
+@-webkit-keyframes red_pocket_show {
+    0%{
+        opacity:0;
+        transform: translate(270px,316px) scale(0);
+    }
+    80%{
+        opacity:1;
+        transform: translate(0px,0px) scale(1.1);
+    }
+    100%{
+        transform: translate(0px,0px) scale(1);
+    }
+}
+@-o-keyframes red_pocket_show {
+    0%{
+        opacity:0;
+        transform: translate(270px,316px) scale(0);
+    }
+    80%{
+        opacity:1;
+        transform: translate(0px,0px) scale(1.1);
+    }
+    100%{
+        transform: translate(0px,0px) scale(1);
+    }
+}
+@-moz-keyframes red_pocket_show {
+    0%{
+        opacity:0;
+        transform: translate(270px,316px) scale(0);
+    }
+    80%{
+        opacity:1;
+        transform: translate(0px,0px) scale(1.1);
+    }
+    100%{
+        transform: translate(0px,0px) scale(1);
+    }
+}
