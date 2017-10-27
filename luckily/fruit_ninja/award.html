@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/base.css"/>
+    <style>
+        .bg{
+            background: url("../../images/wood.jpg") no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            min-height: calc(100vh);
+            position: relative;
+        }
+        .header{
+            overflow: auto;
+        }
+        .comp_logo{
+            padding: 50px 50px 30px 50px;
+            width: 300px;
+        }
+        .comp_logo img{
+            width:100%;
+        }
+        .main{
+            width: 78%;
+            position: absolute;
+            left: 50%;
+            margin-left: -39%;
+            color: #fff;
+            text-align: center;
+        }
+        .text-gradient {
+            color: #f6a420;
+            background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 247, 175, 1)), to(rgba(246, 164, 32, 1)));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .main h2{
+            font-weight: 700;
+            font-size: 55px;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        .main .sign-count{
+            position: relative;
+            display: inline-block;
+            margin-top: 28px;
+        }
+        .main .sign-count img.ewm{
+            float: left;
+            width: 200px;
+        }
+        .main .sign-count .count-info{
+            float: left;
+            margin-left: 30px;
+            text-align: left;
+        }
+        .main .sign-count .count-info .count{
+            font-size: 100px;
+            color: #fff;
+        }
+        .main .sign-count .count-info .count-title{
+            font-size: 50px;
+        }
+        .btn-op{
+            background: url("../../images/veneer.png") center center;
+            width: 300px;
+            height: 140px;
+            background-size: 300px 140px;
+            display: inline-block;
+            margin-top: 80px;
+        }
+        .btn-op .btn-start{
+            font-size: 45px;
+            color: #441c0a;
+            margin-top: 35px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        .btn-op .btn-space{
+            font-size: 18px;
+            color: #65422b;
+        }
+        .award-rate{
+            font-size: 30px;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="bg">
+    <!--公司logo-->
+    <header class="header">
+        <div class="comp_logo">
+            <img src="../../images/science_logo.png"/>
+        </div>
+    </header>
+    <!--main-->
+    <div class="main">
+        <h2 class="text-gradient">三等奖</h2>
+        <div class="sign-count">
+            <img src="../../images/award_01.png" class="ewm"/>
+            <div class="count-info">
+                <p class="count text-gradient">iPhone X</p>
+                <p class="count-title text-gradient">奖品总数共4份</p>
+            </div>
+        </div>
+        <p class="award-rate text-gradient">中奖概率：74.3%</p>
+        <div class="btn-op">
+            <p class="btn-start">开始抽奖</p>
+            <p class="btn-space">可按「 空格 」键开始</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../../js/jquery-3.2.1.js"></script>
+<script src="../../config/config.js"></script>
+<script>
+    autoTop()
+</script>
