@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../../css/base.css"/>
     <style>
         .bg {
-            background: url("../../images/wood.jpg") no-repeat center center;
+            background: url("../../images/wood_bg.jpg") no-repeat center center;
             background-size: cover;
             width: 100%;
             min-height: calc(100vh);
@@ -61,24 +61,20 @@
         .lucky-list li .border-box{
             width: 50%;
             display: inline-block;
-            border:16px solid transparent;
-            border-image-source: url("../../images/shell.png");
-            border-image-slice: 35 40 35 27;
-            border-image-width: 30 30;
-            border-image-repeat: stretch;
-        }
-
-        .lucky-list li .border{
-            width: 100%;
-            -webkit-border-radius: 50%;
-            -moz-border-radius: 50%;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .lucky-list li .border img {
-            width: 100%;
             position: relative;
+        }
+        .lucky-list li .border-box img{
+            width: 100%;
+        }
+        .lucky-list li p.border{
+            position: absolute;
+            width: 78.52%;
+            height: 78.52%;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            margin-left: -41.26%;
+            margin-top: -40.26%;
             overflow: hidden;
         }
 
@@ -130,7 +126,7 @@
     <header class="header">
         <!--公司logo-->
         <div class="comp_logo">
-            <img src="../../images/science_logo.png"/>
+            <img src="../../images/test_logo.png"/>
         </div>
         <p class="award-intr text-gradient">三等奖（iPhone X，共4位）</p>
     </header>
@@ -139,9 +135,37 @@
         <ul class="lucky-list">
             <li>
                 <div class="border-box">
-                    <div class="border">
-                        <img src="../../images/user-header.png"/>
-                    </div>
+                    <img src="../../images/shell.png"/>
+                    <p class="border">
+                        <img src="../../images/user-header.png" class="luck-header"/>
+                    </p>
+                </div>
+                <p class="user-name">幸运星</p>
+            </li>
+            <li>
+                <div class="border-box">
+                    <img src="../../images/shell.png"/>
+                    <p class="border">
+                        <img src="../../images/user-header.png" class="luck-header"/>
+                    </p>
+                </div>
+                <p class="user-name">幸运星</p>
+            </li>
+            <li>
+                <div class="border-box">
+                    <img src="../../images/shell.png"/>
+                    <p class="border">
+                        <img src="../../images/user-header.png" class="luck-header"/>
+                    </p>
+                </div>
+                <p class="user-name">幸运星</p>
+            </li>
+            <li>
+                <div class="border-box">
+                    <img src="../../images/shell.png"/>
+                    <p class="border">
+                        <img src="../../images/user-header.png" class="luck-header"/>
+                    </p>
                 </div>
                 <p class="user-name">幸运星</p>
             </li>
@@ -174,7 +198,7 @@
         count: 24,
         clickDom:$('.start'),
         start:function (index,$this) {
-            $this.find('img').attr('src', imgs[index])
+            $this.find('.luck-header').attr('src', imgs[index])
         },
         stop:function () {
             console.log('停止了')
