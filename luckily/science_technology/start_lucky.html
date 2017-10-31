@@ -236,16 +236,24 @@
     }
 
     //抽奖
-    $('.lucky-list li').lucky({
-        time: 60,
-        imgs: imgs,
-        count: 24,
-        clickDom:$('.start'),
-        start:function (index,$this) {
-            $this.find('img').attr('src', imgs[index])
-        },
-        stop:function () {
-            console.log('停止了')
+    $(window).keyup(function (e) {
+        e = (event) ? event : window.event;
+        if (e.keyCode === 32) {
+
+            $('.lucky-list li').lucky({
+                time: 60,
+                imgs: imgs,
+                count: 2,
+                clickDom:$('.start'),
+                start:function (index,$this) {
+                    console.log(this.isStart)
+                    //$this.find('img').attr('src', imgs[index])
+                },
+                stop:function () {
+                    console.log('停止了')
+                }
+            })
+
         }
     })
 </script>

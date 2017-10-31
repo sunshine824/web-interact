@@ -18,17 +18,17 @@
         var $this = $(this), loop, arr = []
 
         //空格开始抽奖
-        $(window).keyup(function (e) {
+       /* $(window).keyup(function (e) {
             e = (event) ? event : window.event;
             if (e.keyCode === 32) {
                 play()
             }
-        })
+        })*/
 
         //点击开始抽奖
-        settings.clickDom.click(function () {
+      /*  settings.clickDom.click(function () {
             play()
-        })
+        })*/
 
         /**
          * 开始抽奖
@@ -51,7 +51,6 @@
                     if (i < settings.count) {
                         loop = setInterval(function () {
                             var index = Math.floor(Math.random()*settings.imgs.length+1)
-
                             //开始处理函数
                             settings.start(index, $this)
 
@@ -63,5 +62,7 @@
                 settings.isStart = true
             }
         }
+
+        play()
     }
 })(jQuery)
