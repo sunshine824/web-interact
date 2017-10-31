@@ -236,23 +236,32 @@
     }
 
     //抽奖
+    var isStart=1
+
     $(window).keyup(function (e) {
         e = (event) ? event : window.event;
         if (e.keyCode === 32) {
+            isStart = isStart === 1 ? 0 : 1
 
             $('.lucky-list li').lucky({
                 time: 60,
                 imgs: imgs,
-                count: 2,
+                count: 5,
+                isStart:isStart,
+                url:'/test',
+                data:{},
                 clickDom:$('.start'),
                 start:function (index,$this) {
-                    console.log(this.isStart)
-                    //$this.find('img').attr('src', imgs[index])
+                    console.log('开始了')
+                    $this.find('img').attr('src', imgs[index])
                 },
-                stop:function () {
+                stop:function (succ,err) {
                     console.log('停止了')
+                    console.log(succ)
+                    console.log(err.status)
                 }
             })
+
 
         }
     })

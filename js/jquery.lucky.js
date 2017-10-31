@@ -7,62 +7,73 @@
             time: 10,    //间隔时间呢
             imgs: [],    //图片头像集合
             count: 1,    //同时抽奖几人
-            isStart: false, //是否空格执行
-            clickDom:'',   //点击元素
+            isStart: true, //是否空格执行
+            clickDom: '',   //点击元素
+            url: '',   //ajax请求接口
+            data: {},  //请求参数
             start: function () {
             },  //开始执行函数
             stop: function () {
             }   //停止执行函数
         }, options)
 
-        var $this = $(this), loop, arr = []
+        var $this = $(this), loop
 
-        //空格开始抽奖
-       /* $(window).keyup(function (e) {
-            e = (event) ? event : window.event;
-            if (e.keyCode === 32) {
-                play()
+        if (settings.isStart) {
+            //停止所有定时器
+            for (var k in arr) {
+                clearInterval(arr[k])
             }
-        })*/
 
-        //点击开始抽奖
-      /*  settings.clickDom.click(function () {
-            play()
-        })*/
+            //停止处理函数
+            settings.stop(succData, errData)
 
-        /**
-         * 开始抽奖
-         */
-        function play() {
-            if (settings.isStart) {
-                //停止所有定时器
-                for(var k in arr){
-                    clearInterval(arr[k])
+        } else {
+            arr = []
+            succData = []
+            errData = []
+            var current = getStorage('current') ? getStorage('current') : 0;
+
+            //获取中奖用户
+            getWiner()
+
+            $this.each(function (i) {
+                var $this = $(this)
+                if (i >= current && i < current + settings.count) {
+                    loop = setInterval(function () {
+                        index = Math.floor(Math.random() * settings.imgs.length + 1)
+                        //开始处理函数
+                        settings.start(index, $this)
+                    }, settings.time)
+                    arr.push(loop)
                 }
+            })
 
-                //停止处理函数
-                settings.stop()
-
-                settings.isStart = false
-            } else {
-                arr=[]
-                $this.each(function (i) {
-                    var $this = $(this)
-                    if (i < settings.count) {
-                        loop = setInterval(function () {
-                            var index = Math.floor(Math.random()*settings.imgs.length+1)
-                            //开始处理函数
-                            settings.start(index, $this)
-
-                        }, settings.time)
-
-                        arr.push(loop)
-                    }
-                })
-                settings.isStart = true
-            }
+            current += settings.count
+            setStorage('current', current)
         }
 
-        play()
+        function getWiner() {
+            $.ajax({
+                type: 'post',
+                url: settings.url,
+                dataType: 'json',
+                data: settings.data,
+                success: function (data) {
+                    succData = data
+                },
+                error: function (err) {
+                    errData = err
+                }
+            })
+        }
+
+        function setStorage(key, val) {
+            localStorage.setItem(key, val)
+        }
+
+        function getStorage(key) {
+            return parseInt(localStorage.getItem(key))
+        }
     }
 })(jQuery)
